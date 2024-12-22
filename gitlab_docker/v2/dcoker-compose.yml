@@ -1,0 +1,25 @@
+version: '3.5'
+services:
+  gitlab:
+    image: gitlab/gitlab-ce
+    hostname: gitlab.me
+    container_name: gitlab-main
+    restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url "http://gitlab.me"
+        letsencrypt['enable'] = false
+    volumes:
+      - /path/to/your/gitlab/config:/etc/gitlab
+      - /path/to/your/gitlab/logs:/var/log/gitlab
+      - /path/to/your/gitlab/data:/var/opt/gitlab
+      - /path/to/your/var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - '443:443'
+      - '80:80'
+    extra_hosts:
+      - "gitlab.me:192.168.0.101"
+    networks:
+      - devops-net
+networks:
+  devops-net:

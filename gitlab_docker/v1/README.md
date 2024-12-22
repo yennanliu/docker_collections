@@ -28,3 +28,7 @@ docker run -d --name gitlab \
   -v gitlab_data:/var/opt/gitlab \
   custom-gitlab
 ```
+
+## Ref
+- https://vocus.cc/article/64673005fd89780001dedf45
+- https://hackmd.io/@davidho9713/DevOps/https%3A%2F%2Fhackmd.io%2F%40davidho9713%2Fself_host_gitlab_setup
